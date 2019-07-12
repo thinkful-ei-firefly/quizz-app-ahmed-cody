@@ -1,0 +1,65 @@
+/* html *{
+  box-sizing: border-box;
+  border: 1px black solid;
+} */
+
+header{
+  flex-direction: column;
+}
+
+header h1{
+  font-size: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+footer{
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+
+
+.container{
+  display: flex;
+}  
+
+.question-num-score{
+  justify-content: space-evenly;
+}
+
+.quiz-box{
+  flex-direction: column;
+  margin: 10px 0 10px 0;
+  flex-wrap: wrap;
+}
+
+.quiz-box h2{
+  margin: 10px 0;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  border: 1px black solid;
+}
+
+.quiz-box div{
+  border: 1px black solid;
+  padding: 5px;
+  margin: 5px 0 5px 0;
+}
+
+.quiz-box label{
+  
+}
+
+.submit-button{
+  margin: 10px 10px 0 10px;
+  padding: 10px 10px;
+  border: 1px solid black;
+  background: white; 
+  justify-content: center;
+}
+
+div .submit-button{
+  justify-content: center;
+}
