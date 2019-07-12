@@ -48,7 +48,7 @@ const handleDisplayQuestion = (q) => {
   for (const index in q.answers) {
     //console.log(typeof index, index);
     questionHtml += `<div>
-        <input type="radio" name="answer" value="answer${index}" id="answer${index}">
+        <input type="radio" name="answer" value="answer${index}" id="answer${index}" required>
         <label for="answer${index}">${q.answers[index]}</label>
       </div>`;
   }
@@ -69,7 +69,7 @@ const handleDisplayFinish = () => {
 
 // ------- event handlers
 const handleClickStart = () => {
-  $('main').on('click', '.js-start-btn' , () => {
+  $('main').on('click', '.js-start-btn', () => {
     console.log('click');
     nextQuestion();
   });
@@ -78,7 +78,9 @@ const handleClickStart = () => {
 const handleClickSubmitQuestion = () => {
   $('main').on('submit', (e) => {
     e.preventDefault();
-    console.log(e.target);
+    //console.log($(e.target.answer));
+    //console.log($('input[name="answer":checked').val());
+    console.log($('input[name=answer]:checked', '.quiz-box').val());
     handleFeedBack();
   });
 };
