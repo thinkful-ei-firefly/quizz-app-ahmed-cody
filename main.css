@@ -5,12 +5,14 @@
 
 header{
   flex-direction: column;
+  margin: 20px;
 }
 
 header h1{
   font-size: 50px;
   width: 100%;
   text-align: center;
+  margin: 10px;
 }
 
 footer{
@@ -23,17 +25,39 @@ footer{
 
 .container{
   display: flex;
+
 }  
 
 .question-num-score{
   justify-content: space-evenly;
 }
 
+.generic-box {
+  border: 1px solid black;
+  justify-content: center;
+  flex-direction: column;
+  margin: 25px 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.generic-box button {
+  margin: 30px 70px  ;
+  padding: 7px 0;
+  border: 1px black solid;
+  text-align: center;
+  font-size: 20px;
+}
+.generic-box p {
+  font-size:20px; 
+  margin: 5px;
+}
 .quiz-box{
   flex-direction: column;
   margin: 10px 0 10px 0;
   flex-wrap: wrap;
 }
+
 
 .quiz-box h2{
   margin: 10px 0;
