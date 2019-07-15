@@ -4,27 +4,27 @@ const STORE = {
   currQ: 0,
   questions: [
     {
-      question: 'What is 1 + 1',
+      question: 'What is 1 + 1?',
       currectA: 2,
       answers: [22, 42, 2, 29]
     },
     {
-      question: 'What is 2 x 2',
+      question: 'What is 2 x 2?',
       currectA: 3,
       answers: [1, 44, 78, 4]
     },
     {
-      question: 'What is the square root of 36',
+      question: 'What is the square root of 36?',
       currectA: 0,
       answers: [6, 3, 20, 9]
     },
     {
-      question: 'Jimmy has 5 bananas and give tommy 10 bananas, how many bananas does Jimmy have?',
+      question: 'Jimmy has 5 bananas and gives Tommy 10 bananas, how many bananas does Jimmy have?',
       currectA: 3,
       answers: [5, -3, 10, -5]
     },
     {
-      question: 'Let the interval (a , +infinity) be the range of function f. The range of f(x) - 4 is given by ',
+      question: 'Let the interval (a , +infinity) be the range of function f. The range of f(x) - 4 is given by...',
       currectA: 0,
       answers: ['the interval (a - 4 , +infinity)', 'the interval (a + 4, +infinity) ',
         'the interval (a, +infinity)', 'None of the above ']
