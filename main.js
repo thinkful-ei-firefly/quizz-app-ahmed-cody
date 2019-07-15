@@ -5,12 +5,12 @@ const STORE = {
   questions: [
     {
       question: 'What is 1 + 1',
-      currectA: 2,
+      currectA: 'answer2',
       answers: [22, 42, 2, 29]
     },
     {
       question: 'What is 2 x 2',
-      currectA: 4,
+      currectA: 'answer3',
       answers: [1, 44, 78, 4]
     },
   ],
@@ -18,16 +18,31 @@ const STORE = {
 };
 // ------- handle quiz
 const startQuiz = () => {
+  STORE.score = 0;
+  STORE.currQ = 0 ;
   handleDisplayStart();
 };
 
 const nextQuestion = () => {
-  handleDisplayQuestion(STORE.questions[STORE.currQ]);
+  if ( STORE.currQ === STORE.questions.length) {
+    handleDisplayFinish();
+  } else {handleDisplayQuestion(STORE.questions[STORE.currQ]);
+}
+  
 };
 
-const handleFeedBack = () => {
 
-  handleDisplayFeedback();
+
+const handleFeedBack = (ans) => {
+  // console.log(STORE.questions[STORE.currQ].currectA);
+  if (ans === STORE.questions[STORE.currQ].currectA) {
+    STORE.score++;
+    handleDisplayFeedback(true);
+    
+  } else { handleDisplayFeedback(false)};
+  
+  
+
 };
 
 // ------- display handlers 
@@ -37,7 +52,7 @@ const handleDisplayStart = () => {
     <p> Please press start begin</p>
     <button class="js-start-btn">Start</button>
 </section >`);
-  $('.js-question-number').text(`${STORE.currQ}/${STORE.questions.length}`);
+  $('.js-question-number').text(`${STORE.currQ }/${STORE.questions.length}`);
   $('.js-score').text(`${STORE.score}`);
 };
 
@@ -55,22 +70,33 @@ const handleDisplayQuestion = (q) => {
   questionHtml += '<button type="submit" class="submit-button js-submit">Submit</button></form>';
 
   $('main').html(questionHtml);
-
-  STORE.currQ++;
+  $('.js-question-number').text(`${STORE.currQ +1 }/${STORE.questions.length}`);
+ 
 };
 
-const handleDisplayFeedback = () => {
+const handleDisplayFeedback = (ansBool) => {
+  // console.log()
+  $('main').html(`<section class=" js-feedback container generic-box ">
+    <p>${ ansBool ? 'Your answer is correct' : 'You\'re wrong' } </p>
+    <button class= 'js-nextbtn'>Next</button>
+  </section>`)
 
+  // console.log(STORE.score);
+  $('.js-score').text(`${STORE.score}`);
 };
 
 const handleDisplayFinish = () => {
+  $('main').html(`<section class=" js-finish container generic-box ">
+      <p>${STORE.score} / ${STORE.questions.length } </p>
 
+      <button class= 'js-restart-btn'>Restart</button>
+    </section>`)
 };
 
 // ------- event handlers
 const handleClickStart = () => {
   $('main').on('click', '.js-start-btn', () => {
-    console.log('click');
+    // console.log('click');
     nextQuestion();
   });
 };
@@ -81,16 +107,28 @@ const handleClickSubmitQuestion = () => {
     //console.log($(e.target.answer));
     //console.log($('input[name="answer":checked').val());
     console.log($('input[name=answer]:checked', '.quiz-box').val());
-    handleFeedBack();
+    const ans = $('input[name=answer]:checked', '.quiz-box').val()
+    handleFeedBack(ans);
   });
 };
 
 const handleClickNext = () => {
-
+  $('main').on('click', '.js-nextbtn', () => {
+    
+    STORE.currQ++;
+    nextQuestion();
+    
+  })
 };
 
-const handleClickRestart = () => {
 
+
+const handleClickRestart = () => {
+  $('main').on('click', '.js-restart-btn', () => {
+
+    startQuiz();
+
+  })
 };
 
 // ------- main function and run
@@ -98,7 +136,8 @@ const main = () => {
   startQuiz();
   handleClickStart();
   handleClickSubmitQuestion();
-
+  handleClickNext();
+  handleClickRestart();
 };
 
 $(main());
