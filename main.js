@@ -99,7 +99,7 @@ const handleClickRestart = () => {
 // ------- display handlers 
 const handleDisplayStart = () => {
   $('main').html(`<section class="container generic-box">
-  <p>Welcome to the math quiz</p>
+  <h2>Welcome to the math quiz</h2>
     <p> Please press start begin</p>
     <button class="js-start-btn">Start</button>
 </section >`);
