@@ -3,6 +3,10 @@
   border: 1px black solid;
 } */
 
+body{
+  font-size: 20px;
+}
+
 header{
   flex-direction: column;
   margin: 20px;
@@ -22,6 +26,15 @@ footer{
   font-size: 12px;
 }
 
+button{
+  font-size: 20px;
+}
+
+button:hover{
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: lightskyblue;
+}
 
 .container{
   display: flex;
@@ -34,11 +47,10 @@ footer{
 
 .generic-box {
   border: 1px solid black;
-  justify-content: center;
   flex-direction: column;
   margin: 25px 5px;
   padding: 10px;
-  text-align: center;
+  align-items: center;
 }
 
 .generic-box button {
@@ -46,18 +58,17 @@ footer{
   padding: 7px 0;
   border: 1px black solid;
   text-align: center;
-  font-size: 20px;
 }
-.generic-box p {
-  font-size:20px; 
+
+.generic-box p { 
   margin: 5px;
 }
+
 .quiz-box{
   flex-direction: column;
   margin: 10px 0 10px 0;
   flex-wrap: wrap;
 }
-
 
 .quiz-box h2{
   margin: 10px 0;
@@ -72,8 +83,10 @@ footer{
   margin: 5px 0 5px 0;
 }
 
-.quiz-box label{
-  
+.quiz-box div:hover{
+  transition: 0.5s;
+  cursor: pointer;
+  background-color: lightblue;
 }
 
 .submit-button{
@@ -88,3 +101,46 @@ div .submit-button{
   justify-content: center;
 }
 
+.correct-bg{
+  background-color: lightgreen;
+}
+
+.incorrect-bg{
+  background-color: lightcoral;
+}
+
+@media screen and (min-width: 800px){
+  body{
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .quiz-box{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .quiz-box h2{
+    width: 100%;
+  }
+
+  .quiz-box div{
+    width: 45%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .submit-button {
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  section button{
+    width: 200px;  
+    height: 70px;
+    
+  }
+
+}
