@@ -108,7 +108,7 @@ const handleDisplayStart = () => {
 };
 
 const handleDisplayQuestion = (q) => {
-  let questionHtml = `<form class="container quiz-box">
+  let questionHtml = `<form aria-live="polite" class="container quiz-box">
       <h2 id="question">${q.question}</h2>`;
 
   for (const index in q.answers) {
@@ -129,7 +129,7 @@ const handleDisplayFeedback = (ansBool) => {
   const correctAIndex = STORE.questions[STORE.currQ].currectA;
   const correctA = STORE.questions[STORE.currQ].answers[correctAIndex];
 
-  $('main').html(`<section class="js-feedback container generic-box correct-bg">
+  $('main').html(`<section aria-live="polite" class="js-feedback container generic-box correct-bg">
     <p>${ansBool ? 'Your answer is correct' : 'You\'re wrong, the correct answer is ' + correctA}</p>
   <button class='js-next-btn'>Next</button>
   </section > `);
@@ -138,12 +138,11 @@ const handleDisplayFeedback = (ansBool) => {
     $('section').toggleClass('incorrect-bg');
   }
 
-  // console.log(STORE.score);
   $('.js-score').text(`${STORE.score} `);
 };
 
 const handleDisplayFinish = () => {
-  $('main').html(`<section class="js-finish container generic-box">
+  $('main').html(`<section aria-live="polite" class="js-finish container generic-box">
   <p>You got ${STORE.score} questions out of ${STORE.questions.length}!</p>
   <button class='js-restart-btn'>Restart</button>
     </section > `);
